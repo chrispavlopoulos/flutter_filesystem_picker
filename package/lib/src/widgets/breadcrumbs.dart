@@ -8,6 +8,8 @@ import '../utils/extensions/listview_extended.dart';
 
 /// Scrolling horizontal breadcrumbs with `Icons.chevron_right` separator and fade on the right.
 class Breadcrumbs<T> extends StatelessWidget {
+  static const double defaultHeight = 50;
+
   /// List of items of breadcrumbs
   final List<BreadcrumbItem<T?>> items;
 
@@ -20,6 +22,9 @@ class Breadcrumbs<T> extends StatelessWidget {
   /// Called when an item is selected
   final ValueChanged<T?>? onSelect;
 
+  /// The theme for Breadcrumbs.
+  final BreadcrumbsThemeData? theme;
+
   final ScrollController _scrollController = ScrollController();
 
   final ThemeData? themeData;
@@ -27,7 +32,7 @@ class Breadcrumbs<T> extends StatelessWidget {
   Breadcrumbs({
     Key? key,
     required this.items,
-    this.height = 50,
+    this.height = defaultHeight,
     this.textColor,
     this.onSelect,
     this.themeData,
